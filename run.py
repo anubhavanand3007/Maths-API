@@ -1,7 +1,5 @@
-from fastapi import FastAPI
+from MathAPI import app
+import uvicorn
 
-app = FastAPI()
-
-@app.get('/')
-async def home():
-    return {'Hello world'}
+if __name__ == '__main__':
+    uvicorn.run(app)
