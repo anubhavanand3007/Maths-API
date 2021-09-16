@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import APIRouter
 
 router = APIRouter(prefix='/armstrong', tags=['Armstrong Numbers'])
@@ -17,6 +18,13 @@ def isArmstrong(value: int):
         return False
 
 
-@router.get('/')
+@router.get('/{value}')
 def main(value: int):
-    return {value: isArmstrong(value)}
+    return isArmstrong(value)
+
+@router.get('/limit/')
+def limit(u: int, l: int):
+    data = {}
+    for num in range(u,l):
+        data[int(num)] = isArmstrong(num)
+    return data
