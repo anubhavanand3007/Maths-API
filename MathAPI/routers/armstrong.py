@@ -22,7 +22,7 @@ def isArmstrong(value: int):
 def main(value: int):
     return isArmstrong(value)
 
-@router.get('/limit/')
+@router.get('/limit')
 def limit(u: int, l: int):
     data = {}
     for num in range(u,l):
