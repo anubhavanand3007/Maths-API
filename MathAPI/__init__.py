@@ -1,4 +1,4 @@
-from MathAPI.routers import armstrong, database, pallindrome, strong
+from MathAPI.routers import armstrong, database, numbersystem, pallindrome, strong
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
@@ -13,7 +13,7 @@ def custom_openai():
 
 app.openapi = custom_openai
 
-
+app.include_router(numbersystem.router)
 app.include_router(database.router)
 app.include_router(armstrong.router)
 app.include_router(pallindrome.router)
